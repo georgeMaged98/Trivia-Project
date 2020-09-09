@@ -39,7 +39,6 @@ def create_app(test_config=None):
     def get_all_categories():
         categories = Category.query.all()
         formatted_categories = [category.format() for category in categories]
-        print(formatted_categories)
         return jsonify({
             "sucess": True,
             "categories": formatted_categories,
@@ -105,7 +104,6 @@ def create_app(test_config=None):
     def add_question():
         try:
             data = request.get_json()
-            # print("DATA ", data['question'])
             question = Question(data['question'], data['answer'],
                                 data['category'], data['difficulty'])
             question.insert()
@@ -176,7 +174,6 @@ def create_app(test_config=None):
   '''
     @app.route('/quizzes', methods=['POST'])
     def play():
-        print(request.get_json())
         previous_questions = request.get_json()['previous_questions']
         quiz_category_id = request.get_json()['quiz_category']['id']
 
