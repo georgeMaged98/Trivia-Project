@@ -1,5 +1,5 @@
 frontend/node_modules
 backend/.vscode
-__pycache__
+backend/__pycache__
 backend/flaskr/__pycache__
 venv
